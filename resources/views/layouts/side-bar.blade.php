@@ -47,7 +47,7 @@
                     </a>
                     <ul class="nav nav-treeview">
                         <li class="nav-item">
-                            <a href="../../index.html" class="nav-link">
+                            <a href="{{ route('empresas.create') }}?tipo=fornecedor" class="nav-link">
                                 <i class="fas fa-file nav-icon"></i>
                                 <p>Novo Fornecedor</p>
                             </a>
@@ -70,7 +70,7 @@
                   </a>
                   <ul class="nav nav-treeview">
                       <li class="nav-item">
-                          <a href="../../index.html" class="nav-link">
+                          <a href="{{ route('empresas.create') }}?tipo=cliente" class="nav-link">
                               <i class="fas fa-file nav-icon"></i>
                               <p>Novo Cliente</p>
                           </a>
