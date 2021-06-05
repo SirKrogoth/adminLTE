@@ -17,7 +17,7 @@ class CreateEmpresasTable extends Migration
             $table->id();
 
             $table->char('tipo', 10);
-            $table->char('documento', 14);
+            $table->char('documento', 15);
             $table->char('ie_rg', 25)->nullable();
             $table->char('telefone', 10)->nullable();
             $table->char('celular', 11)->nullable();
