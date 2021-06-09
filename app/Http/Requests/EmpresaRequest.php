@@ -26,7 +26,7 @@ class EmpresaRequest extends FormRequest
     public function rules()
     {
         return [
-            'tipo' => ['required', Rule::in(['cliente', 'fornecedor'])],
+            'tipo' => $this->validarTipo(),
             'nome' => ['required', 'max:255'],
             'razao_social' => ['max:255'],
             'documento' => $this->tipoValidacaoDocumento(),
@@ -73,5 +73,15 @@ class EmpresaRequest extends FormRequest
         {
             return ['required','cnpj'];
         }
+    }
+
+    private function validarTipo()
+    {
+        if($this->method() === 'POST')
+        {
+            return ['required', Rule::in(['cliente', 'fornecedor'])];
+        }
+
+        return [];
     }
 }

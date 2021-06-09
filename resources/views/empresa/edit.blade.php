@@ -20,6 +20,7 @@
                 </div>
                 <div class="card-body">
                     <form action="{{ route('empresas.update', $empresa) }}" method="POST">
+                        @method('PUT')
 
                         @include('empresa.form')
 

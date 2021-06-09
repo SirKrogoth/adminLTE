@@ -3,7 +3,7 @@
 <div class="form-group row">
     <label for="nome" class="col-form-label col-sm-2 required">Nome*</label>
     <div class="col-sm-10">
-        <input value="{{ old('nome', @$empresa->nome) }}" type="text" id="nome" name="nome" maxlength="255" class="form-control @error('nome') is-invalid @enderror">
+        <input value="{{ old('nome', @$empresa->nome) }}" type="text" id="nome" name="nome" maxlength="255" class="form-control @error('nome') is-invalid @enderror" required>
         @error('nome')
             <div class="alert alert-danger">{{ $message }}</div>
         @enderror
@@ -78,7 +78,16 @@
 <div class="form-group row">
     <label for="estado" class="col-form-label col-sm-2">Estado*</label>
     <div class="col-sm-10">
-        <input value="{{ old('estado', @$empresa->estado) }}" type="text" name="estado" id="estado" maxlength="2" class="form-control" required>
+        <select name="estado" id="estado" class="form-control @error('estado') is-invalid @enderror" required="required">
+            <option value="">Selecione</option>
+            @foreach (estados() as $sigla => $nome)
+                <option {{ @$empresa->estado == $sigla ? 'selected' : '' }} value="{{ $sigla }}" >{{ $nome }}</option>
+            @endforeach
+        </select>
+        @error('estado')
+            <div class="alert alert-danger">{{ $message }}</div>
+        @enderror
+
     </div>
 </div>
 <div class="form-group row">
